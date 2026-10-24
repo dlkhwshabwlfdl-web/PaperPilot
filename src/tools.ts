@@ -87,6 +87,23 @@ export function parseVersionOutput(raw: string): string {
   return match ? match[1] : raw.trim();
 }
 
+/**
+ * Parse the output of the `plugins` command. Returns the plugin names, an
+ * empty array for an empty list, or null when the output is not in the
+ * expected "Plugins (n): a, b, c" shape (callers fall back to the raw text).
+ * Colour codes (§x / ANSI) are stripped first, since RCON output may carry
+ * them for enabled/disabled plugins.
+ */
+export function parsePluginsOutput(raw: string): string[] | null {
+  const stripped = raw.replace(/§./g, "").replace(/\x1b\[[0-9;]*m/g, "");
+  const match = stripped.match(/Plugins\s*\(\d+\)\s*:\s*(.*)/is);
+  if (!match) return null;
+  return match[1]
+    .split(",")
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0);
+}
+
 /** Build all PaperPilot tool definitions bound to the given dependencies. */
 export function createTools(deps: ToolDeps): ToolDefinition[] {
   const { config, rcon, audit } = deps;
@@ -179,6 +196,20 @@ export function createTools(deps: ToolDeps): ToolDefinition[] {
         if (list.online === null) return raw.trim();
         if (list.players.length === 0) return `No players online (max ${list.max ?? "?"}).`;
         return `${list.online} player(s) online: ${list.players.join(", ")}`;
+      }),
+    },
+    {
+      name: "list_plugins",
+      description:
+        "List the plugins installed on the Paper server (runs plugins via RCON).",
+      tier: "readonly",
+      inputSchema: noArgs,
+      handler: guarded("list_plugins", "readonly", async () => {
+        const raw = await rcon.send("plugins");
+        const plugins = parsePluginsOutput(raw);
+        if (plugins === null) return raw.trim();
+        if (plugins.length === 0) return "No plugins installed.";
+        return `${plugins.length} plugin(s): ${plugins.join(", ")}`;
       }),
     },
     {
