@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { AuditLogger, type AuditEntry } from "../src/audit.js";
 import type { PaperPilotConfig, Tier } from "../src/config.js";
-import { createTools, isCommandAllowed, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
+import { createTools, isCommandAllowed, parsePluginsOutput, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
 import { FakeRcon } from "./fake-rcon.js";
 
 function makeConfig(overrides: Partial<PaperPilotConfig> = {}): {
@@ -189,6 +189,44 @@ describe("run_command allowlist enforcement", () => {
       getTool(tools, "run_command").handler({ command: "stop" }),
     ).rejects.toThrow(ToolDeniedError);
     expect(rcon.sent).toEqual([]);
+  });
+});
+
+describe("list_plugins", () => {
+  it("parses a normal plugin list, stripping colour codes", () => {
+    expect(parsePluginsOutput("Plugins (3): §aPaperPilot, §cWorldEdit, Vault")).toEqual([
+      "PaperPilot",
+      "WorldEdit",
+      "Vault",
+    ]);
+  });
+
+  it("returns an empty array for an empty list", () => {
+    expect(parsePluginsOutput("Plugins (0):")).toEqual([]);
+  });
+
+  it("returns null for output in an unexpected shape", () => {
+    expect(parsePluginsOutput("Something went wrong")).toBeNull();
+  });
+
+  it("is readonly and reports the list through RCON", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ plugins: "Plugins (2): PaperPilot, Vault" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const out = await getTool(tools, "list_plugins").handler({});
+    expect(out).toBe("2 plugin(s): PaperPilot, Vault");
+    expect(rcon.sent).toEqual(["plugins"]);
+  });
+
+  it("reports an empty server cleanly", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ plugins: "Plugins (0):" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "list_plugins").handler({})).resolves.toBe(
+      "No plugins installed.",
+    );
   });
 });
 

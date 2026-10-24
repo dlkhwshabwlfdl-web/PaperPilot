@@ -37,6 +37,7 @@ The server speaks MCP over **stdio** — your MCP client launches it as a subpro
 | --- | --- | --- |
 | `server_status` | readonly | Server version, online/max players, player names, raw TPS output |
 | `list_players` | readonly | Players currently online |
+| `list_plugins` | readonly | Plugins installed on the server |
 | `read_logs` | readonly | Tail of the server log (default 50 lines, max 500), optional substring search |
 | `kick_player` | operator | Kick a player, with an optional reason |
 | `whitelist_add` | operator | Add a player to the whitelist |
