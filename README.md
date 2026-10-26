@@ -35,7 +35,7 @@ The server speaks MCP over **stdio** — your MCP client launches it as a subpro
 
 | Tool | Tier | What it does |
 | --- | --- | --- |
-| `server_status` | readonly | Server version, online/max players, player names, raw TPS output |
+| `server_status` | readonly | Server version, online/max players, player names, parsed TPS (1m/5m/15m, plus MSPT when reported) |
 | `list_players` | readonly | Players currently online |
 | `list_plugins` | readonly | Plugins installed on the server |
 | `read_logs` | readonly | Tail of the server log (default 50 lines, max 500), optional substring search |
