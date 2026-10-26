@@ -87,6 +87,33 @@ export function parseVersionOutput(raw: string): string {
   return match ? match[1] : raw.trim();
 }
 
+export interface ParsedTps {
+  /** TPS over the last 1m, 5m and 15m. */
+  tps: [number, number, number];
+  /** Milliseconds per tick, when the server reports it in the same output. */
+  mspt: number | null;
+}
+
+/**
+ * Parse the output of the `tps` command. Returns the 1m/5m/15m TPS triple
+ * (plus MSPT when the server reports it), or null when the output is not in
+ * the expected "TPS from last 1m, 5m, 15m: a, b, c" shape (callers fall back
+ * to the raw text). Colour codes (§x / ANSI) are stripped first, since RCON
+ * output may carry them.
+ */
+export function parseTpsOutput(raw: string): ParsedTps | null {
+  const stripped = raw.replace(/§./g, "").replace(/\x1b\[[0-9;]*m/g, "");
+  const match = stripped.match(
+    /TPS from last 1m, 5m, 15m:\s*([0-9.]+),\s*([0-9.]+),\s*([0-9.]+)/i,
+  );
+  if (!match) return null;
+  const msptMatch = stripped.match(/MSPT[:\s]+([0-9.]+)/i);
+  return {
+    tps: [Number(match[1]), Number(match[2]), Number(match[3])],
+    mspt: msptMatch ? Number(msptMatch[1]) : null,
+  };
+}
+
 /**
  * Parse the output of the `plugins` command. Returns the plugin names, an
  * empty array for an empty list, or null when the output is not in the
@@ -167,7 +194,7 @@ export function createTools(deps: ToolDeps): ToolDefinition[] {
     {
       name: "server_status",
       description:
-        "Get the Paper server's version, online/max players, player names and raw TPS output (runs version, list and tps via RCON).",
+        "Get the Paper server's version, online/max players, player names and parsed TPS (1m/5m/15m, plus MSPT when reported) (runs version, list and tps via RCON).",
       tier: "readonly",
       inputSchema: noArgs,
       handler: guarded("server_status", "readonly", async () => {
@@ -177,11 +204,17 @@ export function createTools(deps: ToolDeps): ToolDefinition[] {
           await rcon.send("tps"),
         ];
         const list = parseListOutput(listRaw);
+        const tps = parseTpsOutput(tpsRaw);
+        const tpsLine =
+          tps === null
+            ? `TPS (raw): ${tpsRaw.trim()}`
+            : `TPS (1m/5m/15m): ${tps.tps.join(", ")}` +
+              (tps.mspt !== null ? ` — MSPT: ${tps.mspt}` : "");
         return [
           `Version: ${parseVersionOutput(versionRaw)}`,
           `Players: ${list.online ?? "?"} / ${list.max ?? "?"} online` +
             (list.players.length > 0 ? ` — ${list.players.join(", ")}` : ""),
-          `TPS (raw): ${tpsRaw.trim()}`,
+          tpsLine,
         ].join("\n");
       }),
     },

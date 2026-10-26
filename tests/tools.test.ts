@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { AuditLogger, type AuditEntry } from "../src/audit.js";
 import type { PaperPilotConfig, Tier } from "../src/config.js";
-import { createTools, isCommandAllowed, parsePluginsOutput, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
+import { createTools, isCommandAllowed, parsePluginsOutput, parseTpsOutput, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
 import { FakeRcon } from "./fake-rcon.js";
 
 function makeConfig(overrides: Partial<PaperPilotConfig> = {}): {
@@ -82,7 +82,7 @@ describe("tier enforcement", () => {
     expect(status).toContain("1.21.4-232-ver/1.21.4");
     expect(status).toContain("2 / 20");
     expect(status).toContain("Steve, Alex");
-    expect(status).toContain("20.0");
+    expect(status).toContain("TPS (1m/5m/15m): 20, 19.9, 19.8");
 
     const players = await getTool(tools, "list_players").handler({});
     expect(players).toContain("Steve");
@@ -227,6 +227,34 @@ describe("list_plugins", () => {
     await expect(getTool(tools, "list_plugins").handler({})).resolves.toBe(
       "No plugins installed.",
     );
+  });
+});
+
+describe("parseTpsOutput", () => {
+  it("parses the 1m/5m/15m TPS triple", () => {
+    expect(parseTpsOutput("TPS from last 1m, 5m, 15m: 20.0, 19.9, 19.8")).toEqual({
+      tps: [20, 19.9, 19.8],
+      mspt: null,
+    });
+  });
+
+  it("picks up MSPT when the server reports it, stripping colour codes", () => {
+    expect(
+      parseTpsOutput("TPS from last 1m, 5m, 15m: §a20.0, 20.0, 19.9\nMSPT: 12.4"),
+    ).toEqual({ tps: [20, 20, 19.9], mspt: 12.4 });
+  });
+
+  it("returns null for output in an unexpected shape", () => {
+    expect(parseTpsOutput("Something went wrong")).toBeNull();
+  });
+
+  it("falls back to the raw TPS line through server_status", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ tps: "TPS unavailable" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const status = await getTool(tools, "server_status").handler({});
+    expect(status).toContain("TPS (raw): TPS unavailable");
   });
 });
 
