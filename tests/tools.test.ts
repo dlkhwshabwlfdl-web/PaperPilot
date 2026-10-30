@@ -1,1 +1,405 @@
-aW1wb3J0IHsgbWtkdGVtcFN5bmMsIHJlYWRGaWxlU3luYywgd3JpdGVGaWxlU3luYyB9IGZyb20gIm5vZGU6ZnMiOwppbXBvcnQgeyB0bXBkaXIgfSBmcm9tICJub2RlOm9zIjsKaW1wb3J0IHsgam9pbiB9IGZyb20gIm5vZGU6cGF0aCI7CmltcG9ydCB7IGRlc2NyaWJlLCBleHBlY3QsIGl0IH0gZnJvbSAidml0ZXN0IjsKaW1wb3J0IHsgQXVkaXRMb2dnZXIsIHR5cGUgQXVkaXRFbnRyeSB9IGZyb20gIi4uL3NyYy9hdWRpdC5qcyI7CmltcG9ydCB0eXBlIHsgUGFwZXJQaWxvdENvbmZpZywgVGllciB9IGZyb20gIi4uL3NyYy9jb25maWcuanMiOwppbXBvcnQgeyBjcmVhdGVUb29scywgZmluZENyYXNoSW5kaWNhdG9ycywgaXNDb21tYW5kQWxsb3dlZCwgcGFyc2VQbHVnaW5zT3V0cHV0LCBwYXJzZVRwc091dHB1dCwgVG9vbERlbmllZEVycm9yLCB0eXBlIFRvb2xEZWZpbml0aW9uIH0gZnJvbSAiLi4vc3JjL3Rvb2xzLmpzIjsKaW1wb3J0IHsgRmFrZVJjb24gfSBmcm9tICIuL2Zha2UtcmNvbi5qcyI7CgpmdW5jdGlvbiBtYWtlQ29uZmlnKG92ZXJyaWRlczogUGFydGlhbDxQYXBlclBpbG90Q29uZmlnPiA9IHt9KTogewogIGNvbmZpZzogUGFwZXJQaWxvdENvbmZpZzsKICBhdWRpdFBhdGg6IHN0cmluZzsKfSB7CiAgY29uc3QgZGlyID0gbWtkdGVtcFN5bmMoam9pbih0bXBkaXIoKSwgInBhcGVycGlsb3QtdG9vbHMtIikpOwogIGNvbnN0IGF1ZGl0UGF0aCA9IGpvaW4oZGlyLCAiYXVkaXQuanNvbmwiKTsKICBjb25zdCBjb25maWc6IFBhcGVyUGlsb3RDb25maWcgPSB7CiAgICByY29uSG9zdDogIjEyNy4wLjAuMSIsCiAgICByY29uUG9ydDogMjU1NzUsCiAgICByY29uUGFzc3dvcmQ6ICJzZWNyZXQiLAogICAgdGllcjogInJlYWRvbmx5IiwKICAgIGFsbG93bGlzdDogWyJzYXkiLCAidGltZSBzZXQiXSwKICAgIGxvZ1BhdGg6IGpvaW4oZGlyLCAibGF0ZXN0LmxvZyIpLAogICAgYXVkaXRMb2dQYXRoOiBhdWRpdFBhdGgsCiAgICAuLi5vdmVycmlkZXMsCiAgfTsKICByZXR1cm4geyBjb25maWcsIGF1ZGl0UGF0aCB9Owp9CgpmdW5jdGlvbiBnZXRUb29sKHRvb2xzOiBUb29sRGVmaW5pdGlvbltdLCBuYW1lOiBzdHJpbmcpOiBUb29sRGVmaW5pdGlvbiB7CiAgY29uc3QgdG9vbCA9IHRvb2xzLmZpbmQoKHQpID0+IHQubmFtZSA9PT0gbmFtZSk7CiAgaWYgKCF0b29sKSB0aHJvdyBuZXcgRXJyb3IoYFRvb2wgbm90IGZvdW5kOiAke25hbWV9YCk7CiAgcmV0dXJuIHRvb2w7Cn0KCmZ1bmN0aW9uIHJlYWRBdWRpdChhdWRpdFBhdGg6IHN0cmluZyk6IEF1ZGl0RW50cnlbXSB7CiAgcmV0dXJuIHJlYWRGaWxlU3luYyhhdWRpdFBhdGgsICJ1dGY4IikKICAgIC50cmltKCkKICAgIC5zcGxpdCgiXG4iKQogICAgLm1hcCgobGluZSkgPT4gSlNPTi5wYXJzZShsaW5lKSBhcyBBdWRpdEVudHJ5KTsKfQoKY29uc3QgU1RBVFVTX1JFU1BPTlNFUyA9IHsKICB2ZXJzaW9uOgogICAgIlRoaXMgc2VydmVyIGlzIHJ1bm5pbmcgUGFwZXIgdmVyc2lvbiAxLjIxLjQtMjMyLXZlci8xLjIxLjQgKE1DOiAxLjIxLjQpIChJbXBsZW1lbnRpbmcgQVBJIHZlcnNpb24gMS4yMS40LVIwLjEtU05BUFNIT1QpIiwKICBsaXN0OiAiVGhlcmUgYXJlIDIgb2YgYSBtYXggb2YgMjAgcGxheWVycyBvbmxpbmU6IFN0ZXZlLCBBbGV4IiwKICB0cHM6ICJUUFMgZnJvbSBsYXN0IDFtLCA1bSwgMTVtOiAyMC4wLCAxOS45LCAxOS44IiwKfTsKCmRlc2NyaWJlKCJpc0NvbW1hbmRBbGxvd2VkIiwgKCkgPT4gewogIGNvbnN0IGFsbG93bGlzdCA9IFsic2F5IiwgInRpbWUgc2V0Il07CgogIGl0KCJhbGxvd3MgYW4gZXhhY3QgcHJlZml4IG1hdGNoIiwgKCkgPT4gewogICAgZXhwZWN0KGlzQ29tbWFuZEFsbG93ZWQoInNheSIsIGFsbG93bGlzdCkpLnRvQmUodHJ1ZSk7CiAgICBleHBlY3QoaXNDb21tYW5kQWxsb3dlZCgic2F5IGhlbGxvIGV2ZXJ5b25lIiwgYWxsb3dsaXN0KSkudG9CZSh0cnVlKTsKICB9KTsKCiAgaXQoImFsbG93cyBhIG11bHRpLXdvcmQgcHJlZml4IG9uIGEgdG9rZW4gYm91bmRhcnkiLCAoKSA9PiB7CiAgICBleHBlY3QoaXNDb21tYW5kQWxsb3dlZCgidGltZSBzZXQgZGF5IiwgYWxsb3dsaXN0KSkudG9CZSh0cnVlKTsKICAgIGV4cGVjdChpc0NvbW1hbmRBbGxvd2VkKCJUSU1FIFNFVCA2MDAwIiwgYWxsb3dsaXN0KSkudG9CZSh0cnVlKTsKICB9KTsKCiAgaXQoInJlamVjdHMgY29tbWFuZHMgdGhhdCBtZXJlbHkgc3RhcnQgd2l0aCB0aGUgc2FtZSBsZXR0ZXJzIiwgKCkgPT4gewogICAgZXhwZWN0KGlzQ29tbWFuZEFsbG93ZWQoInNheW9uYXJhIiwgYWxsb3dsaXN0KSkudG9CZShmYWxzZSk7CiAgICBleHBlY3QoaXNDb21tYW5kQWxsb3dlZCgidGltZSIsIGFsbG93bGlzdCkpLnRvQmUoZmFsc2UpOwogIH0pOwoKICBpdCgicmVqZWN0cyBub24tYWxsb3dsaXN0ZWQgYW5kIGVtcHR5IGNvbW1hbmRzIiwgKCkgPT4gewogICAgZXhwZWN0KGlzQ29tbWFuZEFsbG93ZWQoIm9wIFN0ZXZlIiwgYWxsb3dsaXN0KSkudG9CZShmYWxzZSk7CiAgICBleHBlY3QoaXNDb21tYW5kQWxsb3dlZCgiZ2FtZW1vZGUgY3JlYXRpdmUgU3RldmUiLCBhbGxvd2xpc3QpKS50b0JlKGZhbHNlKTsKICAgIGV4cGVjdChpc0NvbW1hbmRBbGxvd2VkKCIiLCBhbGxvd2xpc3QpKS50b0JlKGZhbHNlKTsKICAgIGV4cGVjdChpc0NvbW1hbmRBbGxvd2VkKCJzYXkgaGkiLCBbXSkpLnRvQmUoZmFsc2UpOwogIH0pOwp9KTsKCmRlc2NyaWJlKCJ0aWVyIGVuZm9yY2VtZW50IiwgKCkgPT4gewogIGl0KCJyZWFkb25seSBjYW4gcmVhZCBzdGF0dXMgYW5kIHBsYXllcnMiLCBhc3luYyAoKSA9PiB7CiAgICBjb25zdCB7IGNvbmZpZyB9ID0gbWFrZUNvbmZpZyh7IHRpZXI6ICJyZWFkb25seSIgYXMgVGllciB9KTsKICAgIGNvbnN0IHJjb24gPSBuZXcgRmFrZVJjb24oU1RBVFVTX1JFU1BPTlNFUyk7CiAgICBjb25zdCB0b29scyA9IGNyZWF0ZVRvb2xzKHsgY29uZmlnLCByY29uLCBhdWRpdDogbmV3IEF1ZGl0TG9nZ2VyKGNvbmZpZy5hdWRpdExvZ1BhdGgpIH0pOwoKICAgIGNvbnN0IHN0YXR1cyA9IGF3YWl0IGdldFRvb2wodG9vbHMsICJzZXJ2ZXJfc3RhdHVzIikuaGFuZGxlcih7fSk7CiAgICBleHBlY3Qoc3RhdHVzKS50b0NvbnRhaW4oIjEuMjEuNC0yMzItdmVyLzEuMjEuNCIpOwogICAgZXhwZWN0KHN0YXR1cykudG9Db250YWluKCIyIC8gMjAiKTsKICAgIGV4cGVjdChzdGF0dXMpLnRvQ29udGFpbigiU3RldmUsIEFsZXgiKTsKICAgIGV4cGVjdChzdGF0dXMpLnRvQ29udGFpbigiVFBTICgxbS81bS8xNW0pOiAyMCwgMTkuOSwgMTkuOCIpOwoKICAgIGNvbnN0IHBsYXllcnMgPSBhd2FpdCBnZXRUb29sKHRvb2xzLCAibGlzdF9wbGF5ZXJzIikuaGFuZGxlcih7fSk7CiAgICBleHBlY3QocGxheWVycykudG9Db250YWluKCJTdGV2ZSIpOwogICAgZXhwZWN0KHJjb24uc2VudCkudG9FcXVhbChbInZlcnNpb24iLCAibGlzdCIsICJ0cHMiLCAibGlzdCJdKTsKICB9KTsKCiAgaXQoInJlYWRvbmx5IGNhbm5vdCBraWNrLCBiYW4sIHdoaXRlbGlzdCBvciBydW4gY29tbWFuZHMg4oCUIGFuZCBub3RoaW5nIHJlYWNoZXMgUkNPTiIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnIH0gPSBtYWtlQ29uZmlnKHsgdGllcjogInJlYWRvbmx5IiBhcyBUaWVyIH0pOwogICAgY29uc3QgcmNvbiA9IG5ldyBGYWtlUmNvbigpOwogICAgY29uc3QgdG9vbHMgPSBjcmVhdGVUb29scyh7IGNvbmZpZywgcmNvbiwgYXVkaXQ6IG5ldyBBdWRpdExvZ2dlcihjb25maWcuYXVkaXRMb2dQYXRoKSB9KTsKCiAgICBhd2FpdCBleHBlY3QoZ2V0VG9vbCh0b29scywgImtpY2tfcGxheWVyIikuaGFuZGxlcih7IHBsYXllcjogIlN0ZXZlIiB9KSkucmVqZWN0cy50b1Rocm93KAogICAgICBUb29sRGVuaWVkRXJyb3IsCiAgICApOwogICAgYXdhaXQgZXhwZWN0KGdldFRvb2wodG9vbHMsICJiYW5fcGxheWVyIikuaGFuZGxlcih7IHBsYXllcjogIlN0ZXZlIiB9KSkucmVqZWN0cy50b1Rocm93KAogICAgICAvcmVxdWlyZXMgdGhlICJhZG1pbiIgdGllci8sCiAgICApOwogICAgYXdhaXQgZXhwZWN0KAogICAgICBnZXRUb29sKHRvb2xzLCAid2hpdGVsaXN0X2FkZCIpLmhhbmRsZXIoeyBwbGF5ZXI6ICJTdGV2ZSIgfSksCiAgICApLnJlamVjdHMudG9UaHJvdyhUb29sRGVuaWVkRXJyb3IpOwogICAgYXdhaXQgZXhwZWN0KAogICAgICBnZXRUb29sKHRvb2xzLCAicnVuX2NvbW1hbmQiKS5oYW5kbGVyKHsgY29tbWFuZDogInNheSBoaSIgfSksCiAgICApLnJlamVjdHMudG9UaHJvdyhUb29sRGVuaWVkRXJyb3IpOwogICAgYXdhaXQgZXhwZWN0KGdldFRvb2wodG9vbHMsICJiYWNrdXBfd29ybGQiKS5oYW5kbGVyKHt9KSkucmVqZWN0cy50b1Rocm93KFRvb2xEZW5pZWRFcnJvcik7CiAgICBleHBlY3QocmNvbi5zZW50KS50b0VxdWFsKFtdKTsKICB9KTsKCiAgaXQoIm9wZXJhdG9yIGNhbiBraWNrIGFuZCB3aGl0ZWxpc3QgYnV0IGNhbm5vdCBiYW4gb3IgcnVuIGNvbW1hbmRzIiwgYXN5bmMgKCkgPT4gewogICAgY29uc3QgeyBjb25maWcgfSA9IG1ha2VDb25maWcoeyB0aWVyOiAib3BlcmF0b3IiIGFzIFRpZXIgfSk7CiAgICBjb25zdCByY29uID0gbmV3IEZha2VSY29uKHt9LCAiIik7CiAgICBjb25zdCB0b29scyA9IGNyZWF0ZVRvb2xzKHsgY29uZmlnLCByY29uLCBhdWRpdDogbmV3IEF1ZGl0TG9nZ2VyKGNvbmZpZy5hdWRpdExvZ1BhdGgpIH0pOwoKICAgIGF3YWl0IGdldFRvb2wodG9vbHMsICJraWNrX3BsYXllciIpLmhhbmRsZXIoeyBwbGF5ZXI6ICJTdGV2ZSIsIHJlYXNvbjogIkFGSyIgfSk7CiAgICBhd2FpdCBnZXRUb29sKHRvb2xzLCAid2hpdGVsaXN0X2FkZCIpLmhhbmRsZXIoeyBwbGF5ZXI6ICJBbGV4IiB9KTsKICAgIGF3YWl0IGdldFRvb2wodG9vbHMsICJ3aGl0ZWxpc3RfcmVtb3ZlIikuaGFuZGxlcih7IHBsYXllcjogIkFsZXgiIH0pOwogICAgZXhwZWN0KHJjb24uc2VudCkudG9FcXVhbChbCiAgICAgICJraWNrIFN0ZXZlIEFGSyIsCiAgICAgICJ3aGl0ZWxpc3QgYWRkIEFsZXgiLAogICAgICAid2hpdGVsaXN0IHJlbW92ZSBBbGV4IiwKICAgIF0pOwoKICAgIGF3YWl0IGV4cGVjdChnZXRUb29sKHRvb2xzLCAiYmFuX3BsYXllciIpLmhhbmRsZXIoeyBwbGF5ZXI6ICJTdGV2ZSIgfSkpLnJlamVjdHMudG9UaHJvdygKICAgICAgVG9vbERlbmllZEVycm9yLAogICAgKTsKICAgIGF3YWl0IGV4cGVjdCgKICAgICAgZ2V0VG9vbCh0b29scywgInJ1bl9jb21tYW5kIikuaGFuZGxlcih7IGNvbW1hbmQ6ICJzYXkgaGkiIH0pLAogICAgKS5yZWplY3RzLnRvVGhyb3coVG9vbERlbmllZEVycm9yKTsKICAgIGF3YWl0IGV4cGVjdChnZXRUb29sKHRvb2xzLCAiYmFja3VwX3dvcmxkIikuaGFuZGxlcih7fSkpLnJlamVjdHMudG9UaHJvdyhUb29sRGVuaWVkRXJyb3IpOwogICAgZXhwZWN0KHJjb24uc2VudCkudG9IYXZlTGVuZ3RoKDMpOwogIH0pOwoKICBpdCgiYWRtaW4gY2FuIGJhbiBhbmQgcnVuIHRoZSBiYWNrdXAgc2VxdWVuY2UgaW4gb3JkZXIiLCBhc3luYyAoKSA9PiB7CiAgICBjb25zdCB7IGNvbmZpZyB9ID0gbWFrZUNvbmZpZyh7IHRpZXI6ICJhZG1pbiIgYXMgVGllciB9KTsKICAgIGNvbnN0IHJjb24gPSBuZXcgRmFrZVJjb24oCiAgICAgIHsKICAgICAgICAic2F2ZS1hbGwiOiAiU2F2ZWQgdGhlIGdhbWUiLAogICAgICAgICJzYXZlLW9mZiI6ICJBdXRvbWF0aWMgc2F2aW5nIGlzIG5vdyBkaXNhYmxlZCIsCiAgICAgICAgInNhdmUtb24iOiAiQXV0b21hdGljIHNhdmluZyBpcyBub3cgZW5hYmxlZCIsCiAgICAgIH0sCiAgICAgICIiLAogICAgKTsKICAgIGNvbnN0IHRvb2xzID0gY3JlYXRlVG9vbHMoeyBjb25maWcsIHJjb24sIGF1ZGl0OiBuZXcgQXVkaXRMb2dnZXIoY29uZmlnLmF1ZGl0TG9nUGF0aCkgfSk7CgogICAgYXdhaXQgZ2V0VG9vbCh0b29scywgImJhbl9wbGF5ZXIiKS5oYW5kbGVyKHsgcGxheWVyOiAiR3JpZWZlciIgfSk7CiAgICBjb25zdCBiYWNrdXAgPSBhd2FpdCBnZXRUb29sKHRvb2xzLCAiYmFja3VwX3dvcmxkIikuaGFuZGxlcih7fSk7CiAgICBleHBlY3QoYmFja3VwKS50b0NvbnRhaW4oInNhdmUtYWxsOiBTYXZlZCB0aGUgZ2FtZSIpOwogICAgZXhwZWN0KGJhY2t1cCkudG9Db250YWluKCJzYXZlLW9mZjogQXV0b21hdGljIHNhdmluZyBpcyBub3cgZGlzYWJsZWQiKTsKICAgIGV4cGVjdChiYWNrdXApLnRvQ29udGFpbigic2F2ZS1vbjogQXV0b21hdGljIHNhdmluZyBpcyBub3cgZW5hYmxlZCIpOwogICAgZXhwZWN0KHJjb24uc2VudCkudG9FcXVhbChbImJhbiBHcmllZmVyIiwgInNhdmUtYWxsIiwgInNhdmUtb2ZmIiwgInNhdmUtb24iXSk7CiAgfSk7CgogIGl0KCJyZWplY3RzIGludmFsaWQgcGxheWVyIG5hbWVzIGJlZm9yZSB0b3VjaGluZyBSQ09OIiwgYXN5bmMgKCkgPT4gewogICAgY29uc3QgeyBjb25maWcgfSA9IG1ha2VDb25maWcoeyB0aWVyOiAiYWRtaW4iIGFzIFRpZXIgfSk7CiAgICBjb25zdCByY29uID0gbmV3IEZha2VSY29uKCk7CiAgICBjb25zdCB0b29scyA9IGNyZWF0ZVRvb2xzKHsgY29uZmlnLCByY29uLCBhdWRpdDogbmV3IEF1ZGl0TG9nZ2VyKGNvbmZpZy5hdWRpdExvZ1BhdGgpIH0pOwoKICAgIGF3YWl0IGV4cGVjdCgKICAgICAgZ2V0VG9vbCh0b29scywgImtpY2tfcGxheWVyIikuaGFuZGxlcih7IHBsYXllcjogImJhZCBuYW1lOyBvcCBtZSIgfSksCiAgICApLnJlamVjdHMudG9UaHJvdygvSW52YWxpZCBwbGF5ZXIvKTsKICAgIGV4cGVjdChyY29uLnNlbnQpLnRvRXF1YWwoW10pOwogIH0pOwp9KTsKCmRlc2NyaWJlKCJydW5fY29tbWFuZCBhbGxvd2xpc3QgZW5mb3JjZW1lbnQiLCAoKSA9PiB7CiAgaXQoImFkbWluIGNhbiBydW4gYW4gYWxsb3dsaXN0ZWQgY29tbWFuZCIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnIH0gPSBtYWtlQ29uZmlnKHsgdGllcjogImFkbWluIiBhcyBUaWVyIH0pOwogICAgY29uc3QgcmNvbiA9IG5ldyBGYWtlUmNvbih7ICJzYXkgaGVsbG8iOiAiW1NlcnZlcl0gaGVsbG8iIH0pOwogICAgY29uc3QgdG9vbHMgPSBjcmVhdGVUb29scyh7IGNvbmZpZywgcmNvbiwgYXVkaXQ6IG5ldyBBdWRpdExvZ2dlcihjb25maWcuYXVkaXRMb2dQYXRoKSB9KTsKCiAgICBjb25zdCBvdXQgPSBhd2FpdCBnZXRUb29sKHRvb2xzLCAicnVuX2NvbW1hbmQiKS5oYW5kbGVyKHsgY29tbWFuZDogInNheSBoZWxsbyIgfSk7CiAgICBleHBlY3Qob3V0KS50b0JlKCJbU2VydmVyXSBoZWxsbyIpOwogICAgZXhwZWN0KHJjb24uc2VudCkudG9FcXVhbChbInNheSBoZWxsbyJdKTsKICB9KTsKCiAgaXQoImFkbWluIGlzIHJlamVjdGVkIGZvciBhIG5vbi1hbGxvd2xpc3RlZCBjb21tYW5kIGFuZCBub3RoaW5nIHJlYWNoZXMgUkNPTiIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnIH0gPSBtYWtlQ29uZmlnKHsgdGllcjogImFkbWluIiBhcyBUaWVyIH0pOwogICAgY29uc3QgcmNvbiA9IG5ldyBGYWtlUmNvbigpOwogICAgY29uc3QgdG9vbHMgPSBjcmVhdGVUb29scyh7IGNvbmZpZywgcmNvbiwgYXVkaXQ6IG5ldyBBdWRpdExvZ2dlcihjb25maWcuYXVkaXRMb2dQYXRoKSB9KTsKCiAgICBhd2FpdCBleHBlY3QoCiAgICAgIGdldFRvb2wodG9vbHMsICJydW5fY29tbWFuZCIpLmhhbmRsZXIoeyBjb21tYW5kOiAib3AgU3RldmUiIH0pLAogICAgKS5yZWplY3RzLnRvVGhyb3coL2RvZXMgbm90IG1hdGNoIHRoZSBjb25maWd1cmVkIGFsbG93bGlzdC8pOwogICAgYXdhaXQgZXhwZWN0KAogICAgICBnZXRUb29sKHRvb2xzLCAicnVuX2NvbW1hbmQiKS5oYW5kbGVyKHsgY29tbWFuZDogInN0b3AiIH0pLAogICAgKS5yZWplY3RzLnRvVGhyb3coVG9vbERlbmllZEVycm9yKTsKICAgIGV4cGVjdChyY29uLnNlbnQpLnRvRXF1YWwoW10pOwogIH0pOwp9KTsKCmRlc2NyaWJlKCJsaXN0X3BsdWdpbnMiLCAoKSA9PiB7CiAgaXQoInBhcnNlcyBhIG5vcm1hbCBwbHVnaW4gbGlzdCwgc3RyaXBwaW5nIGNvbG91ciBjb2RlcyIsICgpID0+IHsKICAgIGV4cGVjdChwYXJzZVBsdWdpbnNPdXRwdXQoIlBsdWdpbnMgKDMpOiDCp2FQYXBlclBpbG90LCDCp2NXb3JsZEVkaXQsIFZhdWx0IikpLnRvRXF1YWwoWwogICAgICAiUGFwZXJQaWxvdCIsCiAgICAgICJXb3JsZEVkaXQiLAogICAgICAiVmF1bHQiLAogICAgXSk7CiAgfSk7CgogIGl0KCJyZXR1cm5zIGFuIGVtcHR5IGFycmF5IGZvciBhbiBlbXB0eSBsaXN0IiwgKCkgPT4gewogICAgZXhwZWN0KHBhcnNlUGx1Z2luc091dHB1dCgiUGx1Z2lucyAoMCk6IikpLnRvRXF1YWwoW10pOwogIH0pOwoKICBpdCgicmV0dXJucyBudWxsIGZvciBvdXRwdXQgaW4gYW4gdW5leHBlY3RlZCBzaGFwZSIsICgpID0+IHsKICAgIGV4cGVjdChwYXJzZVBsdWdpbnNPdXRwdXQoIlNvbWV0aGluZyB3ZW50IHdyb25nIikpLnRvQmVOdWxsKCk7CiAgfSk7CgogIGl0KCJpcyByZWFkb25seSBhbmQgcmVwb3J0cyB0aGUgbGlzdCB0aHJvdWdoIFJDT04iLCBhc3luYyAoKSA9PiB7CiAgICBjb25zdCB7IGNvbmZpZyB9ID0gbWFrZUNvbmZpZyh7IHRpZXI6ICJyZWFkb25seSIgYXMgVGllciB9KTsKICAgIGNvbnN0IHJjb24gPSBuZXcgRmFrZVJjb24oeyBwbHVnaW5zOiAiUGx1Z2lucyAoMik6IFBhcGVyUGlsb3QsIFZhdWx0IiB9KTsKICAgIGNvbnN0IHRvb2xzID0gY3JlYXRlVG9vbHMoeyBjb25maWcsIHJjb24sIGF1ZGl0OiBuZXcgQXVkaXRMb2dnZXIoY29uZmlnLmF1ZGl0TG9nUGF0aCkgfSk7CgogICAgY29uc3Qgb3V0ID0gYXdhaXQgZ2V0VG9vbCh0b29scywgImxpc3RfcGx1Z2lucyIpLmhhbmRsZXIoe30pOwogICAgZXhwZWN0KG91dCkudG9CZSgiMiBwbHVnaW4ocyk6IFBhcGVyUGlsb3QsIFZhdWx0Iik7CiAgICBleHBlY3QocmNvbi5zZW50KS50b0VxdWFsKFsicGx1Z2lucyJdKTsKICB9KTsKCiAgaXQoInJlcG9ydHMgYW4gZW1wdHkgc2VydmVyIGNsZWFubHkiLCBhc3luYyAoKSA9PiB7CiAgICBjb25zdCB7IGNvbmZpZyB9ID0gbWFrZUNvbmZpZyh7IHRpZXI6ICJyZWFkb25seSIgYXMgVGllciB9KTsKICAgIGNvbnN0IHJjb24gPSBuZXcgRmFrZVJjb24oeyBwbHVnaW5zOiAiUGx1Z2lucyAoMCk6IiB9KTsKICAgIGNvbnN0IHRvb2xzID0gY3JlYXRlVG9vbHMoeyBjb25maWcsIHJjb24sIGF1ZGl0OiBuZXcgQXVkaXRMb2dnZXIoY29uZmlnLmF1ZGl0TG9nUGF0aCkgfSk7CgogICAgYXdhaXQgZXhwZWN0KGdldFRvb2wodG9vbHMsICJsaXN0X3BsdWdpbnMiKS5oYW5kbGVyKHt9KSkucmVzb2x2ZXMudG9CZSgKICAgICAgIk5vIHBsdWdpbnMgaW5zdGFsbGVkLiIsCiAgICApOwogIH0pOwp9KTsKCmRlc2NyaWJlKCJwYXJzZVRwc091dHB1dCIsICgpID0+IHsKICBpdCgicGFyc2VzIHRoZSAxbS81bS8xNW0gVFBTIHRyaXBsZSIsICgpID0+IHsKICAgIGV4cGVjdChwYXJzZVRwc091dHB1dCgiVFBTIGZyb20gbGFzdCAxbSwgNW0sIDE1bTogMjAuMCwgMTkuOSwgMTkuOCIpKS50b0VxdWFsKHsKICAgICAgdHBzOiBbMjAsIDE5LjksIDE5LjhdLAogICAgICBtc3B0OiBudWxsLAogICAgfSk7CiAgfSk7CgogIGl0KCJwaWNrcyB1cCBNU1BUIHdoZW4gdGhlIHNlcnZlciByZXBvcnRzIGl0LCBzdHJpcHBpbmcgY29sb3VyIGNvZGVzIiwgKCkgPT4gewogICAgZXhwZWN0KAogICAgICBwYXJzZVRwc091dHB1dCgiVFBTIGZyb20gbGFzdCAxbSwgNW0sIDE1bTogwqdhMjAuMCwgMjAuMCwgMTkuOVxuTVNQVDogMTIuNCIpLAogICAgKS50b0VxdWFsKHsgdHBzOiBbMjAsIDIwLCAxOS45XSwgbXNwdDogMTIuNCB9KTsKICB9KTsKCiAgaXQoInJldHVybnMgbnVsbCBmb3Igb3V0cHV0IGluIGFuIHVuZXhwZWN0ZWQgc2hhcGUiLCAoKSA9PiB7CiAgICBleHBlY3QocGFyc2VUcHNPdXRwdXQoIlNvbWV0aGluZyB3ZW50IHdyb25nIikpLnRvQmVOdWxsKCk7CiAgfSk7CgogIGl0KCJmYWxscyBiYWNrIHRvIHRoZSByYXcgVFBTIGxpbmUgdGhyb3VnaCBzZXJ2ZXJfc3RhdHVzIiwgYXN5bmMgKCkgPT4gewogICAgY29uc3QgeyBjb25maWcgfSA9IG1ha2VDb25maWcoeyB0aWVyOiAicmVhZG9ubHkiIGFzIFRpZXIgfSk7CiAgICBjb25zdCByY29uID0gbmV3IEZha2VSY29uKHsgdHBzOiAiVFBTIHVuYXZhaWxhYmxlIiB9KTsKICAgIGNvbnN0IHRvb2xzID0gY3JlYXRlVG9vbHMoeyBjb25maWcsIHJjb24sIGF1ZGl0OiBuZXcgQXVkaXRMb2dnZXIoY29uZmlnLmF1ZGl0TG9nUGF0aCkgfSk7CgogICAgY29uc3Qgc3RhdHVzID0gYXdhaXQgZ2V0VG9vbCh0b29scywgInNlcnZlcl9zdGF0dXMiKS5oYW5kbGVyKHt9KTsKICAgIGV4cGVjdChzdGF0dXMpLnRvQ29udGFpbigiVFBTIChyYXcpOiBUUFMgdW5hdmFpbGFibGUiKTsKICB9KTsKfSk7CgpkZXNjcmliZSgiZGlhZ25vc2VfY3Jhc2giLCAoKSA9PiB7CiAgaXQoImRldGVjdHMgY3Jhc2gtcmVwb3J0LCBPT00gYW5kIHRpY2tpbmcgbGluZXMsIGlnbm9yZXMgb3JkaW5hcnkgd2FybmluZ3MiLCAoKSA9PiB7CiAgICBjb25zdCBsb2cgPSBbCiAgICAgICJbMTI6MDA6MDFdIFtTZXJ2ZXIgdGhyZWFkL0lORk9dOiBTdGFydGluZyBtaW5lY3JhZnQgc2VydmVyIHZlcnNpb24gMS4yMS40IiwKICAgICAgIlsxMjowMDowMl0gW1NlcnZlciB0aHJlYWQvV0FSTl06IENhbid0IGtlZXAgdXAhIElzIHRoZSBzZXJ2ZXIgb3ZlcmxvYWRlZD8iLAogICAgICAiWzEyOjAwOjAzXSBbU2VydmVyIHRocmVhZC9FUlJPUl06IEVuY291bnRlcmVkIGFuIHVuZXhwZWN0ZWQgZXhjZXB0aW9uIiwKICAgICAgIlsxMjowMDowNF0gW1NlcnZlciB0aHJlYWQvRVJST1JdOiBqYXZhLmxhbmcuT3V0T2ZNZW1vcnlFcnJvcjogSmF2YSBoZWFwIHNwYWNlIiwKICAgICAgIlsxMjowMDowNV0gW1NlcnZlciB0aHJlYWQvRVJST1JdOiBUaGlzIGNyYXNoIHJlcG9ydCBoYXMgYmVlbiBzYXZlZCB0bzogLi9jcmFzaC1yZXBvcnRzL2NyYXNoLTIwMjYtMTAtMjgudHh0IiwKICAgIF0uam9pbigiXG4iKTsKICAgIGV4cGVjdChmaW5kQ3Jhc2hJbmRpY2F0b3JzKGxvZykpLnRvRXF1YWwoWwogICAgICAiWzEyOjAwOjA0XSBbU2VydmVyIHRocmVhZC9FUlJPUl06IGphdmEubGFuZy5PdXRPZk1lbW9yeUVycm9yOiBKYXZhIGhlYXAgc3BhY2UiLAogICAgICAiWzEyOjAwOjA1XSBbU2VydmVyIHRocmVhZC9FUlJPUl06IFRoaXMgY3Jhc2ggcmVwb3J0IGhhcyBiZWVuIHNhdmVkIHRvOiAuL2NyYXNoLXJlcG9ydHMvY3Jhc2gtMjAyNi0xMC0yOC50eHQiLAogICAgXSk7CiAgfSk7CgogIGl0KCJyZXR1cm5zIGFuIGVtcHR5IGFycmF5IGZvciBhIGNsZWFuIGxvZyIsICgpID0+IHsKICAgIGV4cGVjdChmaW5kQ3Jhc2hJbmRpY2F0b3JzKCJbMTI6MDA6MDFdIFtTZXJ2ZXIgdGhyZWFkL0lORk9dOiBEb25lICgxLjIzNHMpISIpKS50b0VxdWFsKFtdKTsKICB9KTsKCiAgaXQoImlzIHJlYWRvbmx5IGFuZCByZXBvcnRzIG1hdGNoaW5nIGxpbmVzIGZyb20gdGhlIGxvZyBmaWxlIiwgYXN5bmMgKCkgPT4gewogICAgY29uc3QgeyBjb25maWcgfSA9IG1ha2VDb25maWcoeyB0aWVyOiAicmVhZG9ubHkiIGFzIFRpZXIgfSk7CiAgICBjb25zdCByY29uID0gbmV3IEZha2VSY29uKCk7CiAgICBjb25zdCB0b29scyA9IGNyZWF0ZVRvb2xzKHsgY29uZmlnLCByY29uLCBhdWRpdDogbmV3IEF1ZGl0TG9nZ2VyKGNvbmZpZy5hdWRpdExvZ1BhdGgpIH0pOwogICAgd3JpdGVGaWxlU3luYygKICAgICAgY29uZmlnLmxvZ1BhdGgsCiAgICAgIFsKICAgICAgICAiWzEyOjAwOjAxXSBbU2VydmVyIHRocmVhZC9JTkZPXTogRG9uZSAoMS4yMzRzKSEiLAogICAgICAgICJbMTI6MDA6MDJdIFtTZXJ2ZXIgdGhyZWFkL0VSUk9SXTogRXhjZXB0aW9uIHRpY2tpbmcgZW50aXR5IG1pbmVjcmFmdDp6b21iaWUiLAogICAgICAgICJbMTI6MDA6MDNdIFtTZXJ2ZXIgdGhyZWFkL0lORk9dOiBTdG9wcGluZyBzZXJ2ZXIiLAogICAgICBdLmpvaW4oIlxuIiksCiAgICApOwoKICAgIGNvbnN0IG91dCA9IGF3YWl0IGdldFRvb2wodG9vbHMsICJkaWFnbm9zZV9jcmFzaCIpLmhhbmRsZXIoe30pOwogICAgZXhwZWN0KG91dCkudG9Db250YWluKCIxIGNyYXNoIGluZGljYXRvcihzKSIpOwogICAgZXhwZWN0KG91dCkudG9Db250YWluKCJFeGNlcHRpb24gdGlja2luZyBlbnRpdHkgbWluZWNyYWZ0OnpvbWJpZSIpOwogICAgZXhwZWN0KG91dCkudG9Db250YWluKCJjcmFzaC1yZXBvcnRzLyIpOwogIH0pOwoKICBpdCgicmVwb3J0cyBjbGVhbmx5IHdoZW4gdGhlIGxvZyBoYXMgbm8gY3Jhc2ggaW5kaWNhdG9ycyIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnIH0gPSBtYWtlQ29uZmlnKHsgdGllcjogInJlYWRvbmx5IiBhcyBUaWVyIH0pOwogICAgY29uc3QgcmNvbiA9IG5ldyBGYWtlUmNvbigpOwogICAgY29uc3QgdG9vbHMgPSBjcmVhdGVUb29scyh7IGNvbmZpZywgcmNvbiwgYXVkaXQ6IG5ldyBBdWRpdExvZ2dlcihjb25maWcuYXVkaXRMb2dQYXRoKSB9KTsKICAgIHdyaXRlRmlsZVN5bmMoY29uZmlnLmxvZ1BhdGgsICJbMTI6MDA6MDFdIFtTZXJ2ZXIgdGhyZWFkL0lORk9dOiBEb25lICgxLjIzNHMpIVxuIik7CgogICAgYXdhaXQgZXhwZWN0KGdldFRvb2wodG9vbHMsICJkaWFnbm9zZV9jcmFzaCIpLmhhbmRsZXIoe30pKS5yZXNvbHZlcy50b0NvbnRhaW4oCiAgICAgICJObyBjcmFzaCBpbmRpY2F0b3JzIGZvdW5kIiwKICAgICk7CiAgfSk7CgogIGl0KCJlcnJvcnMgd2hlbiB0aGUgbG9nIGZpbGUgaXMgbWlzc2luZyIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnIH0gPSBtYWtlQ29uZmlnKHsgdGllcjogInJlYWRvbmx5IiBhcyBUaWVyIH0pOwogICAgY29uc3QgcmNvbiA9IG5ldyBGYWtlUmNvbigpOwogICAgY29uc3QgdG9vbHMgPSBjcmVhdGVUb29scyh7IGNvbmZpZywgcmNvbiwgYXVkaXQ6IG5ldyBBdWRpdExvZ2dlcihjb25maWcuYXVkaXRMb2dQYXRoKSB9KTsKCiAgICBhd2FpdCBleHBlY3QoZ2V0VG9vbCh0b29scywgImRpYWdub3NlX2NyYXNoIikuaGFuZGxlcih7fSkpLnJlamVjdHMudG9UaHJvdygKICAgICAgL0xvZyBmaWxlIG5vdCBmb3VuZC8sCiAgICApOwogIH0pOwp9KTsKCmRlc2NyaWJlKCJhdWRpdCBsb2ciLCAoKSA9PiB7CiAgaXQoInJlY29yZHMgYWxsb3dlZCBhbmQgZGVuaWVkIGNhbGxzIHdpdGggdG9vbCwgdGllciBhbmQgb3V0Y29tZSIsIGFzeW5jICgpID0+IHsKICAgIGNvbnN0IHsgY29uZmlnLCBhdWRpdFBhdGggfSA9IG1ha2VDb25maWcoeyB0aWVyOiAib3BlcmF0b3IiIGFzIFRpZXIgfSk7CiAgICBjb25zdCByY29uID0gbmV3IEZha2VSY29uKHt9LCAiIik7CiAgICBjb25zdCB0b29scyA9IGNyZWF0ZVRvb2xzKHsgY29uZmlnLCByY29uLCBhdWRpdDogbmV3IEF1ZGl0TG9nZ2VyKGF1ZGl0UGF0aCkgfSk7CgogICAgYXdhaXQgZ2V0VG9vbCh0b29scywgImtpY2tfcGxheWVyIikuaGFuZGxlcih7IHBsYXllcjogIlN0ZXZlIiB9KTsKICAgIGF3YWl0IGV4cGVjdChnZXRUb29sKHRvb2xzLCAiYmFuX3BsYXllciIpLmhhbmRsZXIoeyBwbGF5ZXI6ICJTdGV2ZSIgfSkpLnJlamVjdHMudG9UaHJvdygKICAgICAgVG9vbERlbmllZEVycm9yLAogICAgKTsKCiAgICBjb25zdCBlbnRyaWVzID0gcmVhZEF1ZGl0KGF1ZGl0UGF0aCk7CiAgICBleHBlY3QoZW50cmllcykudG9IYXZlTGVuZ3RoKDIpOwogICAgZXhwZWN0KGVudHJpZXNbMF0pLnRvTWF0Y2hPYmplY3QoeyB0b29sOiAia2lja19wbGF5ZXIiLCBvdXRjb21lOiAiYWxsb3dlZCIsIHRpZXI6ICJvcGVyYXRvciIgfSk7CiAgICBleHBlY3QoZW50cmllc1swXS5hcmdzKS50b0NvbnRhaW4oIlN0ZXZlIik7CiAgICBleHBlY3QoZW50cmllc1swXS50cykudG9CZVRydXRoeSgpOwogICAgZXhwZWN0KGVudHJpZXNbMV0pLnRvTWF0Y2hPYmplY3QoeyB0b29sOiAiYmFuX3BsYXllciIsIG91dGNvbWU6ICJkZW5pZWQiLCB0aWVyOiAib3BlcmF0b3IiIH0pOwogICAgZXhwZWN0KGVudHJpZXNbMV0uZGV0YWlsKS50b0NvbnRhaW4oJ3JlcXVpcmVzIHRoZSAiYWRtaW4iIHRpZXInKTsKICB9KTsKfSk7Cg==
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { describe, expect, it } from "vitest";
+import { AuditLogger, type AuditEntry } from "../src/audit.js";
+import type { PaperPilotConfig, Tier } from "../src/config.js";
+import { createTools, findCrashIndicators, GAMEMODE_NAMES, isCommandAllowed, parseDataGetOutput, parsePluginsOutput, parseTpsOutput, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
+import { FakeRcon } from "./fake-rcon.js";
+
+function makeConfig(overrides: Partial<PaperPilotConfig> = {}): {
+  config: PaperPilotConfig;
+  auditPath: string;
+} {
+  const dir = mkdtempSync(join(tmpdir(), "paperpilot-tools-"));
+  const auditPath = join(dir, "audit.jsonl");
+  const config: PaperPilotConfig = {
+    rconHost: "127.0.0.1",
+    rconPort: 25575,
+    rconPassword: "secret",
+    tier: "readonly",
+    allowlist: ["say", "time set"],
+    logPath: join(dir, "latest.log"),
+    auditLogPath: auditPath,
+    ...overrides,
+  };
+  return { config, auditPath };
+}
+
+function getTool(tools: ToolDefinition[], name: string): ToolDefinition {
+  const tool = tools.find((t) => t.name === name);
+  if (!tool) throw new Error(`Tool not found: ${name}`);
+  return tool;
+}
+
+function readAudit(auditPath: string): AuditEntry[] {
+  return readFileSync(auditPath, "utf8")
+    .trim()
+    .split("\n")
+    .map((line) => JSON.parse(line) as AuditEntry);
+}
+
+const STATUS_RESPONSES = {
+  version:
+    "This server is running Paper version 1.21.4-232-ver/1.21.4 (MC: 1.21.4) (Implementing API version 1.21.4-R0.1-SNAPSHOT)",
+  list: "There are 2 of a max of 20 players online: Steve, Alex",
+  tps: "TPS from last 1m, 5m, 15m: 20.0, 19.9, 19.8",
+};
+
+describe("isCommandAllowed", () => {
+  const allowlist = ["say", "time set"];
+
+  it("allows an exact prefix match", () => {
+    expect(isCommandAllowed("say", allowlist)).toBe(true);
+    expect(isCommandAllowed("say hello everyone", allowlist)).toBe(true);
+  });
+
+  it("allows a multi-word prefix on a token boundary", () => {
+    expect(isCommandAllowed("time set day", allowlist)).toBe(true);
+    expect(isCommandAllowed("TIME SET 6000", allowlist)).toBe(true);
+  });
+
+  it("rejects commands that merely start with the same letters", () => {
+    expect(isCommandAllowed("sayonara", allowlist)).toBe(false);
+    expect(isCommandAllowed("time", allowlist)).toBe(false);
+  });
+
+  it("rejects non-allowlisted and empty commands", () => {
+    expect(isCommandAllowed("op Steve", allowlist)).toBe(false);
+    expect(isCommandAllowed("gamemode creative Steve", allowlist)).toBe(false);
+    expect(isCommandAllowed("", allowlist)).toBe(false);
+    expect(isCommandAllowed("say hi", [])).toBe(false);
+  });
+});
+
+describe("tier enforcement", () => {
+  it("readonly can read status and players", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon(STATUS_RESPONSES);
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const status = await getTool(tools, "server_status").handler({});
+    expect(status).toContain("1.21.4-232-ver/1.21.4");
+    expect(status).toContain("2 / 20");
+    expect(status).toContain("Steve, Alex");
+    expect(status).toContain("TPS (1m/5m/15m): 20, 19.9, 19.8");
+
+    const players = await getTool(tools, "list_players").handler({});
+    expect(players).toContain("Steve");
+    expect(rcon.sent).toEqual(["version", "list", "tps", "list"]);
+  });
+
+  it("readonly cannot kick, ban, whitelist or run commands — and nothing reaches RCON", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "kick_player").handler({ player: "Steve" })).rejects.toThrow(
+      ToolDeniedError,
+    );
+    await expect(getTool(tools, "ban_player").handler({ player: "Steve" })).rejects.toThrow(
+      /requires the "admin" tier/,
+    );
+    await expect(
+      getTool(tools, "whitelist_add").handler({ player: "Steve" }),
+    ).rejects.toThrow(ToolDeniedError);
+    await expect(
+      getTool(tools, "run_command").handler({ command: "say hi" }),
+    ).rejects.toThrow(ToolDeniedError);
+    await expect(getTool(tools, "backup_world").handler({})).rejects.toThrow(ToolDeniedError);
+    expect(rcon.sent).toEqual([]);
+  });
+
+  it("operator can kick and whitelist but cannot ban or run commands", async () => {
+    const { config } = makeConfig({ tier: "operator" as Tier });
+    const rcon = new FakeRcon({}, "");
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await getTool(tools, "kick_player").handler({ player: "Steve", reason: "AFK" });
+    await getTool(tools, "whitelist_add").handler({ player: "Alex" });
+    await getTool(tools, "whitelist_remove").handler({ player: "Alex" });
+    expect(rcon.sent).toEqual([
+      "kick Steve AFK",
+      "whitelist add Alex",
+      "whitelist remove Alex",
+    ]);
+
+    await expect(getTool(tools, "ban_player").handler({ player: "Steve" })).rejects.toThrow(
+      ToolDeniedError,
+    );
+    await expect(
+      getTool(tools, "run_command").handler({ command: "say hi" }),
+    ).rejects.toThrow(ToolDeniedError);
+    await expect(getTool(tools, "backup_world").handler({})).rejects.toThrow(ToolDeniedError);
+    expect(rcon.sent).toHaveLength(3);
+  });
+
+  it("admin can ban and run the backup sequence in order", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon(
+      {
+        "save-all": "Saved the game",
+        "save-off": "Automatic saving is now disabled",
+        "save-on": "Automatic saving is now enabled",
+      },
+      "",
+    );
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await getTool(tools, "ban_player").handler({ player: "Griefer" });
+    const backup = await getTool(tools, "backup_world").handler({});
+    expect(backup).toContain("save-all: Saved the game");
+    expect(backup).toContain("save-off: Automatic saving is now disabled");
+    expect(backup).toContain("save-on: Automatic saving is now enabled");
+    expect(rcon.sent).toEqual(["ban Griefer", "save-all", "save-off", "save-on"]);
+  });
+
+  it("rejects invalid player names before touching RCON", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(
+      getTool(tools, "kick_player").handler({ player: "bad name; op me" }),
+    ).rejects.toThrow(/Invalid player/);
+    expect(rcon.sent).toEqual([]);
+  });
+});
+
+describe("run_command allowlist enforcement", () => {
+  it("admin can run an allowlisted command", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon({ "say hello": "[Server] hello" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const out = await getTool(tools, "run_command").handler({ command: "say hello" });
+    expect(out).toBe("[Server] hello");
+    expect(rcon.sent).toEqual(["say hello"]);
+  });
+
+  it("admin is rejected for a non-allowlisted command and nothing reaches RCON", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(
+      getTool(tools, "run_command").handler({ command: "op Steve" }),
+    ).rejects.toThrow(/does not match the configured allowlist/);
+    await expect(
+      getTool(tools, "run_command").handler({ command: "stop" }),
+    ).rejects.toThrow(ToolDeniedError);
+    expect(rcon.sent).toEqual([]);
+  });
+});
+
+describe("list_plugins", () => {
+  it("parses a normal plugin list, stripping colour codes", () => {
+    expect(parsePluginsOutput("Plugins (3): §aPaperPilot, §cWorldEdit, Vault")).toEqual([
+      "PaperPilot",
+      "WorldEdit",
+      "Vault",
+    ]);
+  });
+
+  it("returns an empty array for an empty list", () => {
+    expect(parsePluginsOutput("Plugins (0):")).toEqual([]);
+  });
+
+  it("returns null for output in an unexpected shape", () => {
+    expect(parsePluginsOutput("Something went wrong")).toBeNull();
+  });
+
+  it("is readonly and reports the list through RCON", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ plugins: "Plugins (2): PaperPilot, Vault" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const out = await getTool(tools, "list_plugins").handler({});
+    expect(out).toBe("2 plugin(s): PaperPilot, Vault");
+    expect(rcon.sent).toEqual(["plugins"]);
+  });
+
+  it("reports an empty server cleanly", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ plugins: "Plugins (0):" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "list_plugins").handler({})).resolves.toBe(
+      "No plugins installed.",
+    );
+  });
+});
+
+describe("parseTpsOutput", () => {
+  it("parses the 1m/5m/15m TPS triple", () => {
+    expect(parseTpsOutput("TPS from last 1m, 5m, 15m: 20.0, 19.9, 19.8")).toEqual({
+      tps: [20, 19.9, 19.8],
+      mspt: null,
+    });
+  });
+
+  it("picks up MSPT when the server reports it, stripping colour codes", () => {
+    expect(
+      parseTpsOutput("TPS from last 1m, 5m, 15m: §a20.0, 20.0, 19.9\nMSPT: 12.4"),
+    ).toEqual({ tps: [20, 20, 19.9], mspt: 12.4 });
+  });
+
+  it("returns null for output in an unexpected shape", () => {
+    expect(parseTpsOutput("Something went wrong")).toBeNull();
+  });
+
+  it("falls back to the raw TPS line through server_status", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({ tps: "TPS unavailable" });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const status = await getTool(tools, "server_status").handler({});
+    expect(status).toContain("TPS (raw): TPS unavailable");
+  });
+});
+
+describe("diagnose_crash", () => {
+  it("detects crash-report, OOM and ticking lines, ignores ordinary warnings", () => {
+    const log = [
+      "[12:00:01] [Server thread/INFO]: Starting minecraft server version 1.21.4",
+      "[12:00:02] [Server thread/WARN]: Can't keep up! Is the server overloaded?",
+      "[12:00:03] [Server thread/ERROR]: Encountered an unexpected exception",
+      "[12:00:04] [Server thread/ERROR]: java.lang.OutOfMemoryError: Java heap space",
+      "[12:00:05] [Server thread/ERROR]: This crash report has been saved to: ./crash-reports/crash-2026-10-28.txt",
+    ].join("\n");
+    expect(findCrashIndicators(log)).toEqual([
+      "[12:00:04] [Server thread/ERROR]: java.lang.OutOfMemoryError: Java heap space",
+      "[12:00:05] [Server thread/ERROR]: This crash report has been saved to: ./crash-reports/crash-2026-10-28.txt",
+    ]);
+  });
+
+  it("returns an empty array for a clean log", () => {
+    expect(findCrashIndicators("[12:00:01] [Server thread/INFO]: Done (1.234s)!")).toEqual([]);
+  });
+
+  it("is readonly and reports matching lines from the log file", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+    writeFileSync(
+      config.logPath,
+      [
+        "[12:00:01] [Server thread/INFO]: Done (1.234s)!",
+        "[12:00:02] [Server thread/ERROR]: Exception ticking entity minecraft:zombie",
+        "[12:00:03] [Server thread/INFO]: Stopping server",
+      ].join("\n"),
+    );
+
+    const out = await getTool(tools, "diagnose_crash").handler({});
+    expect(out).toContain("1 crash indicator(s)");
+    expect(out).toContain("Exception ticking entity minecraft:zombie");
+    expect(out).toContain("crash-reports/");
+  });
+
+  it("reports cleanly when the log has no crash indicators", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+    writeFileSync(config.logPath, "[12:00:01] [Server thread/INFO]: Done (1.234s)!\n");
+
+    await expect(getTool(tools, "diagnose_crash").handler({})).resolves.toContain(
+      "No crash indicators found",
+    );
+  });
+
+  it("errors when the log file is missing", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "diagnose_crash").handler({})).rejects.toThrow(
+      /Log file not found/,
+    );
+  });
+});
+
+describe("player_info", () => {
+  it("extracts the value from a data get answer, stripping colour codes", () => {
+    expect(
+      parseDataGetOutput("Steve has the following entity data: §a[100.5d, 64.0d, -200.5d]"),
+    ).toBe("[100.5d, 64.0d, -200.5d]");
+  });
+
+  it("returns null when no entity was found (player offline)", () => {
+    expect(parseDataGetOutput("No entity was found")).toBeNull();
+  });
+
+  it("maps gamemode numbers to names", () => {
+    expect(GAMEMODE_NAMES["0"]).toBe("Survival");
+    expect(GAMEMODE_NAMES["3"]).toBe("Spectator");
+  });
+
+  it("is readonly and reports position, health, food, XP and gamemode", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({
+      "data get entity Steve Pos": "Steve has the following entity data: [100.5d, 64.0d, -200.5d]",
+      "data get entity Steve Health": "Steve has the following entity data: 20.0f",
+      "data get entity Steve foodLevel": "Steve has the following entity data: 17",
+      "data get entity Steve XpLevel": "Steve has the following entity data: 12",
+      "data get entity Steve playerGameType": "Steve has the following entity data: 0",
+    });
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    const out = await getTool(tools, "player_info").handler({ player: "Steve" });
+    expect(out).toContain("Player: Steve");
+    expect(out).toContain("Position: [100.5d, 64.0d, -200.5d]");
+    expect(out).toContain("Health: 20.0");
+    expect(out).toContain("Food level: 17");
+    expect(out).toContain("XP level: 12");
+    expect(out).toContain("Gamemode: Survival");
+    expect(rcon.sent).toEqual([
+      "data get entity Steve Pos",
+      "data get entity Steve Health",
+      "data get entity Steve foodLevel",
+      "data get entity Steve XpLevel",
+      "data get entity Steve playerGameType",
+    ]);
+  });
+
+  it("reports cleanly when the player is offline", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon({}, "No entity was found");
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "player_info").handler({ player: "Steve" })).resolves.toBe(
+      "Steve is not online (no entity data found).",
+    );
+  });
+
+  it("rejects invalid player names before sending anything to RCON", async () => {
+    const { config } = makeConfig({ tier: "readonly" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(
+      getTool(tools, "player_info").handler({ player: "Steve; say hi" }),
+    ).rejects.toThrow(/Invalid player/);
+    expect(rcon.sent).toEqual([]);
+  });
+});
+
+describe("audit log", () => {
+  it("records allowed and denied calls with tool, tier and outcome", async () => {
+    const { config, auditPath } = makeConfig({ tier: "operator" as Tier });
+    const rcon = new FakeRcon({}, "");
+    const tools = createTools({ config, rcon, audit: new AuditLogger(auditPath) });
+
+    await getTool(tools, "kick_player").handler({ player: "Steve" });
+    await expect(getTool(tools, "ban_player").handler({ player: "Steve" })).rejects.toThrow(
+      ToolDeniedError,
+    );
+
+    const entries = readAudit(auditPath);
+    expect(entries).toHaveLength(2);
+    expect(entries[0]).toMatchObject({ tool: "kick_player", outcome: "allowed", tier: "operator" });
+    expect(entries[0].args).toContain("Steve");
+    expect(entries[0].ts).toBeTruthy();
+    expect(entries[1]).toMatchObject({ tool: "ban_player", outcome: "denied", tier: "operator" });
+    expect(entries[1].detail).toContain('requires the "admin" tier');
+  });
+});

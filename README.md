@@ -1,1 +1,105 @@
-IyBQYXBlclBpbG90CgoqKkFuIE1DUCBzZXJ2ZXIgdGhhdCBsZXRzIEFJIGFnZW50cyBzYWZlbHkgb3BlcmF0ZSB5b3VyIFBhcGVyIE1pbmVjcmFmdCBzZXJ2ZXIuKioKClBhcGVyUGlsb3QgY29ubmVjdHMgYW55IFtNb2RlbCBDb250ZXh0IFByb3RvY29sXShodHRwczovL21vZGVsY29udGV4dHByb3RvY29sLmlvKSBjbGllbnQgKENsYXVkZSwgQ3Vyc29yLCB5b3VyIG93biBhZ2VudCwg4oCmKSB0byBhIFBhcGVyIHNlcnZlciBvdmVyIFJDT04g4oCUIGFuZCB3cmFwcyBldmVyeSBhY3Rpb24gaW4gdGhyZWUgbGF5ZXJzIG9mIHNhZmV0eSwgc28gYW4gYWdlbnQgY2FuIGhlbHAgcnVuIHlvdXIgc2VydmVyIHdpdGhvdXQgZXZlciBob2xkaW5nIHRoZSBrZXlzIHRvIHRoZSBraW5nZG9tLgoKIyMgVGhlIHNhZmV0eSBtb2RlbAoKMS4gKipQZXJtaXNzaW9uIHRpZXJzLioqIEVhY2ggUGFwZXJQaWxvdCBpbnN0YW5jZSBydW5zIGFzIGV4YWN0bHkgb25lIHRpZXI6CiAgIC0gYHJlYWRvbmx5YCDigJQgbG9vaywgZG9uJ3QgdG91Y2g6IHN0YXR1cywgcGxheWVyIGxpc3QsIGxvZyByZWFkaW5nLgogICAtIGBvcGVyYXRvcmAg4oCUIHBsdXMgZGF5LXRvLWRheSBtb2RlcmF0aW9uOiBraWNrIGFuZCB3aGl0ZWxpc3QgbWFuYWdlbWVudC4KICAgLSBgYWRtaW5gIOKAlCBwbHVzIGJhbnMsIHdvcmxkLWJhY2t1cCBwcmVwYXJhdGlvbiwgYW5kIGBydW5fY29tbWFuZGAuCjIuICoqQ29tbWFuZCBhbGxvd2xpc3QuKiogRXZlbiBhZG1pbnMgY2FuJ3QgcnVuIGFyYml0cmFyeSBjb21tYW5kcyB0aHJvdWdoIGBydW5fY29tbWFuZGAg4oCUIG9ubHkgY29tbWFuZHMgbWF0Y2hpbmcgYSBjb25maWd1cmVkIHByZWZpeCBsaXN0IChlLmcuIGBzYXlgLCBgdGltZSBzZXRgKSBnZXQgdGhyb3VnaC4gRXZlcnl0aGluZyBlbHNlIGlzIHJlamVjdGVkIGJlZm9yZSBpdCByZWFjaGVzIHRoZSBzZXJ2ZXIuCjMuICoqQXVkaXQgbG9nLioqIEV2ZXJ5IHNpbmdsZSB0b29sIGNhbGwg4oCUIGFsbG93ZWQgKmFuZCogZGVuaWVkIOKAlCBpcyBhcHBlbmRlZCBhcyBhIEpTT04gbGluZSB0byBhbiBhdWRpdCBmaWxlIHdpdGggdGhlIHRpbWVzdGFtcCwgdG9vbCwgYXJndW1lbnRzIHN1bW1hcnksIG91dGNvbWUgYW5kIGFjdGl2ZSB0aWVyLiBJZiBhbiBhZ2VudCBkaWQgaXQsIGl0J3MgaW4gdGhlIGxvZy4KClBsYXllciBuYW1lcyBhcmUgYWxzbyB2YWxpZGF0ZWQgYmVmb3JlIGFueSBtb2RlcmF0aW9uIGNvbW1hbmQgaXMgYnVpbHQsIHNvIGEgbmFtZSBjYW4gbmV2ZXIgc211Z2dsZSBleHRyYSBjb21tYW5kcyBpbnRvIFJDT04uCgojIyBRdWljayBzdGFydAoKYGBgYmFzaApnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL2Rsa2h3c2hhYndsZmRsLXdlYi9QYXBlclBpbG90LmdpdApjZCBQYXBlclBpbG90Cm5wbSBpbnN0YWxsCmNwIC5lbnYuZXhhbXBsZSAuZW52ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIyBzZXQgUkNPTl9QQVNTV09SRCAoYW5kIGhvc3QvcG9ydCBpZiBuZWVkZWQpCmNwIGNvbmZpZy5leGFtcGxlLmpzb24gcGFwZXJwaWxvdC5jb25maWcuanNvbiAgICAgIyBhZGp1c3QgdGllciwgYWxsb3dsaXN0LCBwYXRocwpucG0gcnVuIGJ1aWxkCm5wbSBzdGFydApgYGAKClByZXJlcXVpc2l0ZXM6IE5vZGUuanMgMjArLCBhbmQgYSBQYXBlciBzZXJ2ZXIgd2l0aCBSQ09OIGVuYWJsZWQgKGBlbmFibGUtcmNvbj10cnVlYCBpbiBgc2VydmVyLnByb3BlcnRpZXNgLCBwbHVzIGByY29uLnBhc3N3b3JkYCBhbmQgYHJjb24ucG9ydGApLgoKVGhlIHNlcnZlciBzcGVha3MgTUNQIG92ZXIgKipzdGRpbyoqIOKAlCB5b3VyIE1DUCBjbGllbnQgbGF1bmNoZXMgaXQgYXMgYSBzdWJwcm9jZXNzLgoKIyMgVG9vbHMKCnwgVG9vbCB8IFRpZXIgfCBXaGF0IGl0IGRvZXMgfAp8IC0tLSB8IC0tLSB8IC0tLSB8CnwgYHNlcnZlcl9zdGF0dXNgIHwgcmVhZG9ubHkgfCBTZXJ2ZXIgdmVyc2lvbiwgb25saW5lL21heCBwbGF5ZXJzLCBwbGF5ZXIgbmFtZXMsIHBhcnNlZCBUUFMgKDFtLzVtLzE1bSwgcGx1cyBNU1BUIHdoZW4gcmVwb3J0ZWQpIHwKfCBgbGlzdF9wbGF5ZXJzYCB8IHJlYWRvbmx5IHwgUGxheWVycyBjdXJyZW50bHkgb25saW5lIHwKfCBgbGlzdF9wbHVnaW5zYCB8IHJlYWRvbmx5IHwgUGx1Z2lucyBpbnN0YWxsZWQgb24gdGhlIHNlcnZlciB8CnwgYHJlYWRfbG9nc2AgfCByZWFkb25seSB8IFRhaWwgb2YgdGhlIHNlcnZlciBsb2cgKGRlZmF1bHQgNTAgbGluZXMsIG1heCA1MDApLCBvcHRpb25hbCBzdWJzdHJpbmcgc2VhcmNoIHwKfCBgZGlhZ25vc2VfY3Jhc2hgIHwgcmVhZG9ubHkgfCBTY2FucyB0aGUgbGFzdCAyMDAgbG9nIGxpbmVzIChtYXggNTAwKSBmb3IgY3Jhc2ggaW5kaWNhdG9ycyDigJQgY3Jhc2ggcmVwb3J0cywgT3V0T2ZNZW1vcnlFcnJvciwgdGlja2luZyBleGNlcHRpb25zLCB3YXRjaGRvZyBzdGFsbHMgfAp8IGBraWNrX3BsYXllcmAgfCBvcGVyYXRvciB8IEtpY2sgYSBwbGF5ZXIsIHdpdGggYW4gb3B0aW9uYWwgcmVhc29uIHwKfCBgd2hpdGVsaXN0X2FkZGAgfCBvcGVyYXRvciB8IEFkZCBhIHBsYXllciB0byB0aGUgd2hpdGVsaXN0IHwKfCBgd2hpdGVsaXN0X3JlbW92ZWAgfCBvcGVyYXRvciB8IFJlbW92ZSBhIHBsYXllciBmcm9tIHRoZSB3aGl0ZWxpc3QgfAp8IGBiYW5fcGxheWVyYCB8IGFkbWluIHwgQmFuIGEgcGxheWVyLCB3aXRoIGFuIG9wdGlvbmFsIHJlYXNvbiB8CnwgYHJ1bl9jb21tYW5kYCB8IGFkbWluIHwgUnVuIGEgY29tbWFuZCDigJQgKipvbmx5KiogaWYgaXQgbWF0Y2hlcyB0aGUgYWxsb3dsaXN0IHwKfCBgYmFja3VwX3dvcmxkYCB8IGFkbWluIHwgUnVucyBgc2F2ZS1hbGxgIOKGkiBgc2F2ZS1vZmZgIOKGkiBgc2F2ZS1vbmAgYW5kIHJlcG9ydHMgZWFjaCBzdGVwLCBzbyB5b3UgY2FuIHNuYXBzaG90IHRoZSB3b3JsZCBzYWZlbHkgfAoKIyMgQ29uZmlndXJhdGlvbgoKVHdvIHNvdXJjZXMsIGRlbGliZXJhdGVseSBzcGxpdDoKCioqRW52aXJvbm1lbnQgKGAuZW52YCkg4oCUIGNvbm5lY3Rpb24gJiBzZWNyZXQqKgoKfCBWYXJpYWJsZSB8IERlZmF1bHQgfCBEZXNjcmlwdGlvbiB8CnwgLS0tIHwgLS0tIHwgLS0tIHwKfCBgUkNPTl9IT1NUYCB8IGAxMjcuMC4wLjFgIHwgUkNPTiBob3N0IHwKfCBgUkNPTl9QT1JUYCB8IGAyNTU3NWAgfCBSQ09OIHBvcnQgfAp8IGBSQ09OX1BBU1NXT1JEYCB8IOKAlCAocmVxdWlyZWQpIHwgUkNPTiBwYXNzd29yZC4gTmV2ZXIgcmVhZCBmcm9tIHRoZSBjb25maWcgZmlsZSwgbmV2ZXIgd3JpdHRlbiB0byB0aGUgYXVkaXQgbG9nIHwKfCBgUEFQRVJQSUxPVF9DT05GSUdgIHwgYC4vcGFwZXJwaWxvdC5jb25maWcuanNvbmAgfCBQYXRoIHRvIHRoZSBjb25maWcgZmlsZSB8CgoqKkNvbmZpZyBmaWxlIChgcGFwZXJwaWxvdC5jb25maWcuanNvbmApIOKAlCBiZWhhdmlvdXIqKgoKfCBGaWVsZCB8IERlZmF1bHQgfCBEZXNjcmlwdGlvbiB8CnwgLS0tIHwgLS0tIHwgLS0tIHwKfCBgdGllcmAgfCBgInJlYWRvbmx5ImAgfCBgInJlYWRvbmx5ImAgXHwgYCJvcGVyYXRvciJgIFx8IGAiYWRtaW4iYCB8CnwgYGFsbG93bGlzdGAgfCBgW11gIHwgQ29tbWFuZCBwcmVmaXhlcyBhbGxvd2VkIGZvciBgcnVuX2NvbW1hbmRgLiBBIGNvbW1hbmQgcGFzc2VzIHdoZW4gaXQgZXF1YWxzIGFuIGVudHJ5IG9yIHN0YXJ0cyB3aXRoIGFuIGVudHJ5ICsgYSBzcGFjZSwgY2FzZS1pbnNlbnNpdGl2ZSAoZW50cnkgYCJ0aW1lIHNldCJgIGFsbG93cyBgdGltZSBzZXQgZGF5YCkgfAp8IGBsb2dQYXRoYCB8IGAibG9ncy9sYXRlc3QubG9nImAgfCBQYXRoIHRvIHRoZSBzZXJ2ZXIgbG9nIGZpbGUgcmVhZCBieSBgcmVhZF9sb2dzYCB8CnwgYGF1ZGl0TG9nUGF0aGAgfCBgInBhcGVycGlsb3QtYXVkaXQubG9nImAgfCBQYXRoIG9mIHRoZSBKU09OTCBhdWRpdCBsb2cgfAoKU2VlIGBjb25maWcuZXhhbXBsZS5qc29uYCBmb3IgYSByZWFkeS10by1lZGl0IGV4YW1wbGUuIFN0YXJ0IHdpdGggYHJlYWRvbmx5YCBhbmQgdGhlIHNtYWxsZXN0IGFsbG93bGlzdCB0aGF0IGNvdmVycyB5b3VyIG5lZWRzLgoKIyMgQ29ubmVjdGluZyBhbiBNQ1AgY2xpZW50CgpBZGQgUGFwZXJQaWxvdCBhcyBhIHN0ZGlvIHNlcnZlciBpbiB5b3VyIGNsaWVudCdzIE1DUCBjb25maWd1cmF0aW9uOgoKYGBganNvbgp7CiAgIm1jcFNlcnZlcnMiOiB7CiAgICAicGFwZXJwaWxvdCI6IHsKICAgICAgImNvbW1hbmQiOiAibm9kZSIsCiAgICAgICJhcmdzIjogWyIvcGF0aC90by9QYXBlclBpbG90L2Rpc3QvaW5kZXguanMiXSwKICAgICAgImVudiI6IHsKICAgICAgICAiUkNPTl9IT1NUIjogIjEyNy4wLjAuMSIsCiAgICAgICAgIlJDT05fUE9SVCI6ICIyNTU3NSIsCiAgICAgICAgIlJDT05fUEFTU1dPUkQiOiAieW91ci1yY29uLXBhc3N3b3JkIgogICAgICB9CiAgICB9CiAgfQp9CmBgYAoKIyMgRGV2ZWxvcG1lbnQKCmBgYGJhc2gKbnBtIHJ1biBkZXYgICAgIyBydW4gZnJvbSBzb3VyY2Ugd2l0aCB0c3gKbnBtIHJ1biBidWlsZCAgIyB0eXBlLWNoZWNrICsgY29tcGlsZSB0byBkaXN0LwpucG0gdGVzdCAgICAgICAjIHZpdGVzdCDigJQgZmFrZSBpbi1tZW1vcnkgUkNPTiwgbm8gcmVhbCBzZXJ2ZXIgbmVlZGVkCmBgYAoKIyMgTGljZW5zZQoKTUlUIOKAlCBzZWUgW0xJQ0VOU0VdKExJQ0VOU0UpLgo=
+# PaperPilot
+
+**An MCP server that lets AI agents safely operate your Paper Minecraft server.**
+
+PaperPilot connects any [Model Context Protocol](https://modelcontextprotocol.io) client (Claude, Cursor, your own agent, …) to a Paper server over RCON — and wraps every action in three layers of safety, so an agent can help run your server without ever holding the keys to the kingdom.
+
+## The safety model
+
+1. **Permission tiers.** Each PaperPilot instance runs as exactly one tier:
+   - `readonly` — look, don't touch: status, player list, log reading.
+   - `operator` — plus day-to-day moderation: kick and whitelist management.
+   - `admin` — plus bans, world-backup preparation, and `run_command`.
+2. **Command allowlist.** Even admins can't run arbitrary commands through `run_command` — only commands matching a configured prefix list (e.g. `say`, `time set`) get through. Everything else is rejected before it reaches the server.
+3. **Audit log.** Every single tool call — allowed *and* denied — is appended as a JSON line to an audit file with the timestamp, tool, arguments summary, outcome and active tier. If an agent did it, it's in the log.
+
+Player names are also validated before any moderation command is built, so a name can never smuggle extra commands into RCON.
+
+## Quick start
+
+```bash
+git clone https://github.com/dlkhwshabwlfdl-web/PaperPilot.git
+cd PaperPilot
+npm install
+cp .env.example .env                              # set RCON_PASSWORD (and host/port if needed)
+cp config.example.json paperpilot.config.json     # adjust tier, allowlist, paths
+npm run build
+npm start
+```
+
+Prerequisites: Node.js 20+, and a Paper server with RCON enabled (`enable-rcon=true` in `server.properties`, plus `rcon.password` and `rcon.port`).
+
+The server speaks MCP over **stdio** — your MCP client launches it as a subprocess.
+
+## Tools
+
+| Tool | Tier | What it does |
+| --- | --- | --- |
+| `server_status` | readonly | Server version, online/max players, player names, parsed TPS (1m/5m/15m, plus MSPT when reported) |
+| `list_players` | readonly | Players currently online |
+| `list_plugins` | readonly | Plugins installed on the server |
+| `read_logs` | readonly | Tail of the server log (default 50 lines, max 500), optional substring search |
+| `diagnose_crash` | readonly | Scans the last 200 log lines (max 500) for crash indicators — crash reports, OutOfMemoryError, ticking exceptions, watchdog stalls |
+| `player_info` | readonly | Player position, health, food level, XP level and gamemode (via `data get entity`); reports cleanly when the player is offline |
+| `kick_player` | operator | Kick a player, with an optional reason |
+| `whitelist_add` | operator | Add a player to the whitelist |
+| `whitelist_remove` | operator | Remove a player from the whitelist |
+| `ban_player` | admin | Ban a player, with an optional reason |
+| `run_command` | admin | Run a command — **only** if it matches the allowlist |
+| `backup_world` | admin | Runs `save-all` → `save-off` → `save-on` and reports each step, so you can snapshot the world safely |
+
+## Configuration
+
+Two sources, deliberately split:
+
+**Environment (`.env`) — connection & secret**
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `RCON_HOST` | `127.0.0.1` | RCON host |
+| `RCON_PORT` | `25575` | RCON port |
+| `RCON_PASSWORD` | — (required) | RCON password. Never read from the config file, never written to the audit log |
+| `PAPERPILOT_CONFIG` | `./paperpilot.config.json` | Path to the config file |
+
+**Config file (`paperpilot.config.json`) — behaviour**
+
+| Field | Default | Description |
+| --- | --- | --- |
+| `tier` | `"readonly"` | `"readonly"` \| `"operator"` \| `"admin"` |
+| `allowlist` | `[]` | Command prefixes allowed for `run_command`. A command passes when it equals an entry or starts with an entry + a space, case-insensitive (entry `"time set"` allows `time set day`) |
+| `logPath` | `"logs/latest.log"` | Path to the server log file read by `read_logs` |
+| `auditLogPath` | `"paperpilot-audit.log"` | Path of the JSONL audit log |
+
+See `config.example.json` for a ready-to-edit example. Start with `readonly` and the smallest allowlist that covers your needs.
+
+## Connecting an MCP client
+
+Add PaperPilot as a stdio server in your client's MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "paperpilot": {
+      "command": "node",
+      "args": ["/path/to/PaperPilot/dist/index.js"],
+      "env": {
+        "RCON_HOST": "127.0.0.1",
+        "RCON_PORT": "25575",
+        "RCON_PASSWORD": "your-rcon-password"
+      }
+    }
+  }
+}
+```
+
+## Development
+
+```bash
+npm run dev    # run from source with tsx
+npm run build  # type-check + compile to dist/
+npm test       # vitest — fake in-memory RCON, no real server needed
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
