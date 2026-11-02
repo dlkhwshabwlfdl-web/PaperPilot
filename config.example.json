@@ -1,1 +1,1 @@
-{"allowlist":["say","weather","time set day"],"auditLogPath":"paperpilot-audit.log","logPath":"logs/latest.log","tier":"readonly"}
+{"allowlist":["say","weather","time set day"],"auditLogPath":"paperpilot-audit.log","backupDir":"backups","logPath":"logs/latest.log","tier":"readonly"}

@@ -1,4 +1,5 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, rmSync, statSync } from "node:fs";
+import { join, parse, resolve } from "node:path";
 import { z } from "zod";
 import { AuditLogger, summarizeArgs } from "./audit.js";
 import { tierAtLeast, type PaperPilotConfig, type Tier } from "./config.js";
@@ -176,6 +177,24 @@ export function parsePluginsOutput(raw: string): string[] | null {
     .split(",")
     .map((name) => name.trim())
     .filter((name) => name.length > 0);
+}
+
+/** One entry of a backup directory, with the mtime used for rotation order. */
+export interface BackupEntry {
+  name: string;
+  mtimeMs: number;
+}
+
+/**
+ * Pick the backups to delete: sort newest-first (name breaks mtime ties so
+ * the result is deterministic) and return everything past the `keep` newest.
+ * Returns [] when there is nothing to prune.
+ */
+export function selectBackupsToDelete(entries: BackupEntry[], keep: number): string[] {
+  const sorted = [...entries].sort(
+    (a, b) => b.mtimeMs - a.mtimeMs || a.name.localeCompare(b.name),
+  );
+  return sorted.slice(keep).map((entry) => entry.name);
 }
 
 /** Build all PaperPilot tool definitions bound to the given dependencies. */
@@ -489,6 +508,62 @@ export function createTools(deps: ToolDeps): ToolDefinition[] {
           steps.push(`${command}: ${response.trim() || "(no output)"}`);
         }
         return steps.join("\n");
+      }),
+    },
+    {
+      name: "rotate_backups",
+      description:
+        "Prune the configured backup directory (backupDir) to the newest N backups (default 7), deleting older backup files/directories. Pass dryRun=true to list what would be deleted without deleting anything. Refuses to run when backupDir is missing or resolves to the filesystem root or the working directory.",
+      tier: "admin",
+      inputSchema: {
+        keep: z
+          .number()
+          .int()
+          .min(1)
+          .max(100)
+          .optional()
+          .describe("How many of the newest backups to keep (default 7, max 100)"),
+        dryRun: z
+          .boolean()
+          .optional()
+          .describe("When true, only report what would be deleted"),
+      },
+      handler: guarded("rotate_backups", "admin", async (args) => {
+        const keep = typeof args.keep === "number" ? args.keep : 7;
+        const dryRun = args.dryRun === true;
+        if (!existsSync(config.backupDir)) {
+          throw new Error(`Backup directory not found: ${config.backupDir}`);
+        }
+        // Safety: never prune the filesystem root or the working directory
+        // itself (a misconfigured backupDir must not wipe a whole tree).
+        const resolved = resolve(config.backupDir);
+        if (resolved === parse(resolved).root || resolved === resolve(process.cwd())) {
+          throw new Error(
+            `Refusing to rotate backups in unsafe directory: ${config.backupDir}`,
+          );
+        }
+        const entries: BackupEntry[] = [];
+        for (const name of readdirSync(config.backupDir)) {
+          try {
+            entries.push({ name, mtimeMs: statSync(join(config.backupDir, name)).mtimeMs });
+          } catch {
+            // Entry vanished mid-scan; ignore it.
+          }
+        }
+        const toDelete = selectBackupsToDelete(entries, keep);
+        const kept = entries.length - toDelete.length;
+        if (toDelete.length === 0) {
+          return `Nothing to delete: ${entries.length} backup(s) in ${config.backupDir}, keeping ${kept} (keep=${keep}).`;
+        }
+        if (!dryRun) {
+          for (const name of toDelete) {
+            rmSync(join(config.backupDir, name), { recursive: true, force: true });
+          }
+        }
+        return [
+          `${dryRun ? "Dry run — would delete" : "Deleted"} ${toDelete.length} backup(s) from ${config.backupDir}: ${toDelete.join(", ")}.`,
+          `Kept ${kept} newest backup(s) (keep=${keep}).`,
+        ].join("\n");
       }),
     },
   ];

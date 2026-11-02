@@ -31,6 +31,8 @@ export interface PaperPilotConfig {
   logPath: string;
   /** Path to the JSONL audit log file. */
   auditLogPath: string;
+  /** Directory holding world backups (for rotate_backups). */
+  backupDir: string;
 }
 
 export class ConfigError extends Error {
@@ -47,6 +49,7 @@ const DEFAULTS = {
   allowlist: [] as string[],
   logPath: "logs/latest.log",
   auditLogPath: "paperpilot-audit.log",
+  backupDir: "backups",
 };
 
 interface RawFileConfig {
@@ -54,6 +57,7 @@ interface RawFileConfig {
   allowlist?: unknown;
   logPath?: unknown;
   auditLogPath?: unknown;
+  backupDir?: unknown;
 }
 
 function parseTier(value: unknown, source: string): Tier {
@@ -164,6 +168,10 @@ export function loadConfig(options: LoadConfigOptions = {}): PaperPilotConfig {
     fileConfig.auditLogPath === undefined
       ? DEFAULTS.auditLogPath
       : parseString(fileConfig.auditLogPath, "auditLogPath", `config file ${configPath}`);
+  const backupDir =
+    fileConfig.backupDir === undefined
+      ? DEFAULTS.backupDir
+      : parseString(fileConfig.backupDir, "backupDir", `config file ${configPath}`);
 
-  return { rconHost, rconPort, rconPassword, tier, allowlist, logPath, auditLogPath };
+  return { rconHost, rconPort, rconPassword, tier, allowlist, logPath, auditLogPath, backupDir };
 }

@@ -1,10 +1,10 @@
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, utimesSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { AuditLogger, type AuditEntry } from "../src/audit.js";
 import type { PaperPilotConfig, Tier } from "../src/config.js";
-import { createTools, findCrashIndicators, GAMEMODE_NAMES, isCommandAllowed, parseDataGetOutput, parsePluginsOutput, parseTpsOutput, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
+import { createTools, findCrashIndicators, GAMEMODE_NAMES, isCommandAllowed, parseDataGetOutput, parsePluginsOutput, parseTpsOutput, selectBackupsToDelete, ToolDeniedError, type ToolDefinition } from "../src/tools.js";
 import { FakeRcon } from "./fake-rcon.js";
 
 function makeConfig(overrides: Partial<PaperPilotConfig> = {}): {
@@ -21,6 +21,7 @@ function makeConfig(overrides: Partial<PaperPilotConfig> = {}): {
     allowlist: ["say", "time set"],
     logPath: join(dir, "latest.log"),
     auditLogPath: auditPath,
+    backupDir: join(dir, "backups"),
     ...overrides,
   };
   return { config, auditPath };
@@ -380,6 +381,92 @@ describe("player_info", () => {
       getTool(tools, "player_info").handler({ player: "Steve; say hi" }),
     ).rejects.toThrow(/Invalid player/);
     expect(rcon.sent).toEqual([]);
+  });
+});
+
+describe("rotate_backups", () => {
+  function makeBackups(dir: string, names: string[]): void {
+    mkdirSync(dir, { recursive: true });
+    names.forEach((name, i) => {
+      const path = join(dir, name);
+      mkdirSync(path);
+      // Oldest first: each later backup is 1 hour newer.
+      const time = new Date(Date.UTC(2026, 0, 1) + i * 3_600_000);
+      utimesSync(path, time, time);
+    });
+  }
+
+  it("selectBackupsToDelete keeps the newest N and drops the rest", () => {
+    const entries = [
+      { name: "old", mtimeMs: 1000 },
+      { name: "new", mtimeMs: 3000 },
+      { name: "mid", mtimeMs: 2000 },
+    ];
+    expect(selectBackupsToDelete(entries, 1)).toEqual(["mid", "old"]);
+    expect(selectBackupsToDelete(entries, 3)).toEqual([]);
+    expect(selectBackupsToDelete(entries, 10)).toEqual([]);
+  });
+
+  it("is admin-only, deletes only the oldest backups, and keeps the newest", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+    makeBackups(config.backupDir, ["2026-01-01", "2026-01-02", "2026-01-03", "2026-01-04"]);
+
+    const out = await getTool(tools, "rotate_backups").handler({ keep: 2 });
+    expect(out).toContain("Deleted 2 backup(s)");
+    expect(out).toContain("2026-01-01");
+    expect(out).toContain("2026-01-02");
+    expect(out).toContain("Kept 2 newest");
+    expect(existsSync(join(config.backupDir, "2026-01-01"))).toBe(false);
+    expect(existsSync(join(config.backupDir, "2026-01-02"))).toBe(false);
+    expect(existsSync(join(config.backupDir, "2026-01-03"))).toBe(true);
+    expect(existsSync(join(config.backupDir, "2026-01-04"))).toBe(true);
+    expect(rcon.sent).toEqual([]);
+  });
+
+  it("dry run reports deletions without deleting anything", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+    makeBackups(config.backupDir, ["a", "b", "c"]);
+
+    const out = await getTool(tools, "rotate_backups").handler({ keep: 1, dryRun: true });
+    expect(out).toContain("Dry run");
+    expect(out).toContain("a");
+    expect(existsSync(join(config.backupDir, "a"))).toBe(true);
+  });
+
+  it("reports nothing to delete and errors on a missing backup directory", async () => {
+    const { config } = makeConfig({ tier: "admin" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+    makeBackups(config.backupDir, ["only"]);
+
+    await expect(getTool(tools, "rotate_backups").handler({})).resolves.toContain(
+      "Nothing to delete",
+    );
+
+    const { config: missingConfig } = makeConfig({
+      tier: "admin" as Tier,
+      backupDir: join(config.backupDir, "does-not-exist"),
+    });
+    const missingTools = createTools({
+      config: missingConfig,
+      rcon,
+      audit: new AuditLogger(missingConfig.auditLogPath),
+    });
+    await expect(getTool(missingTools, "rotate_backups").handler({})).rejects.toThrow(
+      /Backup directory not found/,
+    );
+  });
+
+  it("is denied below the admin tier", async () => {
+    const { config } = makeConfig({ tier: "operator" as Tier });
+    const rcon = new FakeRcon();
+    const tools = createTools({ config, rcon, audit: new AuditLogger(config.auditLogPath) });
+
+    await expect(getTool(tools, "rotate_backups").handler({})).rejects.toThrow(ToolDeniedError);
   });
 });
 

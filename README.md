@@ -47,6 +47,7 @@ The server speaks MCP over **stdio** — your MCP client launches it as a subpro
 | `ban_player` | admin | Ban a player, with an optional reason |
 | `run_command` | admin | Run a command — **only** if it matches the allowlist |
 | `backup_world` | admin | Runs `save-all` → `save-off` → `save-on` and reports each step, so you can snapshot the world safely |
+| `rotate_backups` | admin | Prunes the backup directory to the newest N backups (default 7); `dryRun` lists what would be deleted without deleting |
 
 ## Configuration
 
@@ -69,6 +70,7 @@ Two sources, deliberately split:
 | `allowlist` | `[]` | Command prefixes allowed for `run_command`. A command passes when it equals an entry or starts with an entry + a space, case-insensitive (entry `"time set"` allows `time set day`) |
 | `logPath` | `"logs/latest.log"` | Path to the server log file read by `read_logs` |
 | `auditLogPath` | `"paperpilot-audit.log"` | Path of the JSONL audit log |
+| `backupDir` | `"backups"` | Directory pruned by `rotate_backups` (files and folders inside it, oldest first) |
 
 See `config.example.json` for a ready-to-edit example. Start with `readonly` and the smallest allowlist that covers your needs.
 

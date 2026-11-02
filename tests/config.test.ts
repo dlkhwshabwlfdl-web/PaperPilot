@@ -28,6 +28,7 @@ describe("loadConfig", () => {
     expect(config.allowlist).toEqual([]);
     expect(config.logPath).toBe("logs/latest.log");
     expect(config.auditLogPath).toBe("paperpilot-audit.log");
+    expect(config.backupDir).toBe("backups");
   });
 
   it("reads tier, allowlist and paths from the config file", () => {
@@ -41,6 +42,11 @@ describe("loadConfig", () => {
     expect(config.allowlist).toEqual(["say", "time set"]);
     expect(config.logPath).toBe("server/logs/latest.log");
     expect(config.auditLogPath).toBe("audit.jsonl");
+  });
+
+  it("reads backupDir from the config file", () => {
+    const config = loadWithFile({ backupDir: "server/backups" });
+    expect(config.backupDir).toBe("server/backups");
   });
 
   it("lets env vars override RCON host and port", () => {
